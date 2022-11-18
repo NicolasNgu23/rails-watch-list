@@ -1,0 +1,11 @@
+
+
+      <ul class="list-group m-3 col-2">
+      <h1>List</h1>
+        <% @lists.each do |l| %>
+            <li><%=  link_to l.name, list_path(l.id) %></li>
+                    <div class='col-4'> <%= link_to "delete", list_path(l), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this film from your list ?"}, class: "btn btn-primary" %></div>
+        <% end %>
+
+
+<%= link_to "Add new list", new_list_path %>

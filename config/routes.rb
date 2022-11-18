@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  # root to: 'lists#index'
-  resources :lists
+  # root to: 'lists#index'  root to: "lists#index"
+  root to: "lists#index"
+  resources :lists, only: [:index, :show, :new, :create, :destroy] do
+    resources :bookmarks, only: [:new, :create]
+  end
+  resources :bookmarks, only: [:destroy]
 end
+# root to: 'restaurants#index'
+# resources :restaurants, only: [:index, :show, :new, :create] do
+#  resources :reviews, only: [:create]
+# end
